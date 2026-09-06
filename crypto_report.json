@@ -1,0 +1,44 @@
+{
+    "generated_at": "2026-09-06 18:48:17",
+    "total_coins_analyzed": 50,
+    "total_market_cap_usd": 2683708633127,
+    "top_gainers": [
+        {
+            "name": "Zcash",
+            "symbol": "zec",
+            "change_24h": 14.39281
+        },
+        {
+            "name": "NEAR Protocol",
+            "symbol": "near",
+            "change_24h": 10.0247
+        },
+        {
+            "name": "Uniswap",
+            "symbol": "uni",
+            "change_24h": 9.60374
+        }
+    ],
+    "top_losers": [
+        {
+            "name": "Aster",
+            "symbol": "aster",
+            "change_24h": -7.05723
+        },
+        {
+            "name": "BNB",
+            "symbol": "bnb",
+            "change_24h": -2.81333
+        },
+        {
+            "name": "Monero",
+            "symbol": "xmr",
+            "change_24h": -2.38299
+        }
+    ],
+    "highest_volume": {
+        "name": "Tether",
+        "symbol": "usdt",
+        "volume_usd": 45348262018
+    }
+}
