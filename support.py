@@ -1,12 +1,14 @@
 import requests
 
 from rich.table import Table
+from functools import wraps
 
 url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1'
 
 
 def retry(max_attempts=3, delay=2):
     def decorator(func):
+        @wraps(func)
         def wrapper(*args, **kwargs):
             for i in range(max_attempts):
                 try:
