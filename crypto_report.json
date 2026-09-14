@@ -1,44 +1,44 @@
 {
-    "generated_at": "2026-09-06 18:48:17",
+    "generated_at": "2026-09-06 19:13:24",
     "total_coins_analyzed": 50,
-    "total_market_cap_usd": 2683708633127,
+    "total_market_cap_usd": 2682415579154,
     "top_gainers": [
         {
             "name": "Zcash",
             "symbol": "zec",
-            "change_24h": 14.39281
-        },
-        {
-            "name": "NEAR Protocol",
-            "symbol": "near",
-            "change_24h": 10.0247
+            "change_24h": 14.20515
         },
         {
             "name": "Uniswap",
             "symbol": "uni",
-            "change_24h": 9.60374
+            "change_24h": 10.26779
+        },
+        {
+            "name": "NEAR Protocol",
+            "symbol": "near",
+            "change_24h": 9.34056
         }
     ],
     "top_losers": [
         {
             "name": "Aster",
             "symbol": "aster",
-            "change_24h": -7.05723
-        },
-        {
-            "name": "BNB",
-            "symbol": "bnb",
-            "change_24h": -2.81333
+            "change_24h": -5.86492
         },
         {
             "name": "Monero",
             "symbol": "xmr",
-            "change_24h": -2.38299
+            "change_24h": -3.09053
+        },
+        {
+            "name": "BNB",
+            "symbol": "bnb",
+            "change_24h": -2.99314
         }
     ],
     "highest_volume": {
         "name": "Tether",
         "symbol": "usdt",
-        "volume_usd": 45348262018
+        "volume_usd": 44968077126
     }
 }

@@ -2,3 +2,5 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+Result_scrin.jpg
+practics.py

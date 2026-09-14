@@ -1,11 +1,14 @@
 import requests
 
+from rich.table import Table
+from functools import wraps
 
 url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1'
 
 
 def retry(max_attempts=3, delay=2):
     def decorator(func):
+        @wraps(func)
         def wrapper(*args, **kwargs):
             for i in range(max_attempts):
                 try:
@@ -46,3 +49,20 @@ def sum_market_cap(data):
         result += data[i]['market_cap']
 
     return result
+
+
+def create_crypto_table(coins, title, color):
+    table = Table(title=title)
+
+    table.add_column('Монета')
+    table.add_column('Символ')
+    table.add_column('Изменение за 24ч')
+
+    for coin in coins:
+        table.add_row(
+            f'[{color}]{coin["name"]}[/{color}]',
+            f'[{color}]{coin["symbol"]}[/{color}]',
+            f'[{color}]{coin["price_change_percentage_24h"]}[/{color}]'
+        )
+
+    return table
