@@ -1,4 +1,5 @@
 import json
+import sys
 
 
 from rich.console import Console
@@ -10,8 +11,13 @@ from support import load_crypto_data, get_top_coins, sum_market_cap
 
 console = Console()
 
-with console.status('Загружаю данные...'):
-    data = load_crypto_data()
+try:
+    with console.status('Загружаю данные...'):
+        data = load_crypto_data()
+except RuntimeError:
+    console.print('Ошибка подключения/получения данных от API')
+    sys.exit()
+
 
 Top_3_max = get_top_coins(data, 'price_change_percentage_24h', 3, True)
 Top_3_min = get_top_coins(data, 'price_change_percentage_24h', 3)

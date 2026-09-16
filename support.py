@@ -1,4 +1,5 @@
 import requests
+import time
 
 
 url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1'
@@ -11,9 +12,9 @@ def retry(max_attempts=3, delay=2):
                 try:
                     result = func(*args, **kwargs)
                     return result
-                except requests.exceptions.RequestException as error:
+                except requests.exceptions.RequestException:
                     if i == max_attempts - 1:
-                        RuntimeError('Ошибка подключения к API')
+                        raise RuntimeError('Ошибка подключения к API')
                     time.sleep(delay)
                 
 
@@ -30,8 +31,15 @@ def load_crypto_data():
 
 
 def get_top_coins(some_data, field_name, top_n, reverse=False):
+    filtered_data = []
+
+    for coin in some_data:
+        if coin[field_name] is None:
+            continue
+        filtered_data.append(coin)
+        
     sorted_data = sorted(
-        some_data,
+        filtered_data,
         key=lambda coin: coin[field_name],
         reverse=reverse
     )
