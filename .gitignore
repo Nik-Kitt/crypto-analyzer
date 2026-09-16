@@ -2,3 +2,5 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+practics.py
+crypto_report.json
