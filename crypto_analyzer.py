@@ -1,12 +1,15 @@
 import json
 import sys
 
-
 from rich.console import Console
 from rich.table import Table
 from datetime import datetime
 
-from support import load_crypto_data, get_top_coins, sum_market_cap
+from support import (
+    load_crypto_data,
+    get_top_coins,
+    sum_market_cap,
+    create_crypto_table)
 
 
 console = Console()
@@ -24,29 +27,18 @@ Top_3_min = get_top_coins(data, 'price_change_percentage_24h', 3)
 max_total_volume = get_top_coins(data, 'total_volume', 1, True)
 result_summ = sum_market_cap(data)
     
-table_height = Table(title='Топ-3 роста')
-table_height.add_column('Монета')
-table_height.add_column('Символ')
-table_height.add_column('Изменение за 24ч')
 
-for coin in Top_3_max:
-    table_height.add_row(
-        f"[green]{coin['name']}[/green]",
-        f"[green]{coin['symbol']}[/green]",
-        f"[green]{coin['price_change_percentage_24h']}[/green]"
-        )
+table_height = create_crypto_table(
+    Top_3_max,
+    'Топ-3 роста',
+    'green'
+)
 
-table_fall = Table(title='Топ-3 падения')
-table_fall.add_column('Монета')
-table_fall.add_column('Символ')
-table_fall.add_column('Изменение за 24ч')
-
-for coin in Top_3_min:
-    table_fall.add_row(
-        f"[red]{coin['name']}[/red]",
-        f"[red]{coin['symbol']}[/red]",
-        f"[red]{coin['price_change_percentage_24h']}[/red]"
-        )
+table_fall = create_crypto_table(
+    Top_3_min,
+    'Топ-3 падения',
+    'red'
+)
 
 console.print(table_height)
 console.print(table_fall)
